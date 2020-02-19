@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{59291BDE-1EF8-4D3E-BAED-C8FF788FC21B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DataBaseCode</RootNamespace>
+    <AssemblyName>DataBaseCode</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.EntityFrameworkCore.Relational.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Caching.Memory.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Binder.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Options.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFrameworkCore, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\net461\MySql.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Interactive.Async, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="packages\BouncyCastle.1.8.3.1\.signature.p7s" />
+    <None Include="packages\BouncyCastle.1.8.3.1\BouncyCastle.1.8.3.1.nupkg" />
+    <None Include="packages\BouncyCastle.1.8.3.1\README.md" />
+    <None Include="packages\Google.Protobuf.3.6.1\.signature.p7s" />
+    <None Include="packages\Google.Protobuf.3.6.1\Google.Protobuf.3.6.1.nupkg" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.2.1.2\.signature.p7s" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.2.1.2\Microsoft.EntityFrameworkCore.2.1.2.nupkg" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.2\.signature.p7s" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.2\Microsoft.EntityFrameworkCore.Abstractions.2.1.2.nupkg" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Analyzers.2.1.2\.signature.p7s" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Analyzers.2.1.2\Microsoft.EntityFrameworkCore.Analyzers.2.1.2.nupkg" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Relational.2.1.2\.signature.p7s" />
+    <None Include="packages\Microsoft.EntityFrameworkCore.Relational.2.1.2\Microsoft.EntityFrameworkCore.Relational.2.1.2.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\Microsoft.Extensions.Caching.Abstractions.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Caching.Memory.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Caching.Memory.2.1.1\Microsoft.Extensions.Caching.Memory.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Configuration.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Configuration.2.1.1\Microsoft.Extensions.Configuration.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\Microsoft.Extensions.Configuration.Abstractions.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Configuration.Binder.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Configuration.Binder.2.1.1\Microsoft.Extensions.Configuration.Binder.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\Microsoft.Extensions.DependencyInjection.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Logging.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Logging.2.1.1\Microsoft.Extensions.Logging.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\Microsoft.Extensions.Logging.Abstractions.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Options.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Options.2.1.1\Microsoft.Extensions.Options.2.1.1.nupkg" />
+    <None Include="packages\Microsoft.Extensions.Primitives.2.1.1\.signature.p7s" />
+    <None Include="packages\Microsoft.Extensions.Primitives.2.1.1\Microsoft.Extensions.Primitives.2.1.1.nupkg" />
+    <None Include="packages\MySql.Data.8.0.18\.signature.p7s" />
+    <None Include="packages\MySql.Data.8.0.18\MySql.Data.8.0.18.nupkg" />
+    <None Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\.signature.p7s" />
+    <None Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\MySql.Data.EntityFrameworkCore.8.0.18.nupkg" />
+    <None Include="packages\Remotion.Linq.2.2.0\.signature.p7s" />
+    <None Include="packages\Remotion.Linq.2.2.0\Remotion.Linq.2.2.0.nupkg" />
+    <None Include="packages\SSH.NET.2016.1.0\.signature.p7s" />
+    <None Include="packages\SSH.NET.2016.1.0\SSH.NET.2016.1.0.nupkg" />
+    <None Include="packages\System.Buffers.4.4.0\.signature.p7s" />
+    <None Include="packages\System.Buffers.4.4.0\lib\netcoreapp2.0\_._" />
+    <None Include="packages\System.Buffers.4.4.0\ref\netcoreapp2.0\_._" />
+    <None Include="packages\System.Buffers.4.4.0\System.Buffers.4.4.0.nupkg" />
+    <None Include="packages\System.Collections.Immutable.1.5.0\.signature.p7s" />
+    <None Include="packages\System.Collections.Immutable.1.5.0\System.Collections.Immutable.1.5.0.nupkg" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\.signature.p7s" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\MonoAndroid10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\MonoTouch10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\net45\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\netcoreapp2.0\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\portable-net45+win8\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\uap10.0.16299\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\win8\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\xamarinios10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\xamarinmac20\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\xamarintvos10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\lib\xamarinwatchos10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\MonoAndroid10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\MonoTouch10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\net45\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcoreapp2.0\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\portable-net45+win8\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\uap10.0.16299\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\win8\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\xamarinios10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\xamarinmac20\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\xamarintvos10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\ref\xamarinwatchos10\_._" />
+    <None Include="packages\System.ComponentModel.Annotations.4.5.0\System.ComponentModel.Annotations.4.5.0.nupkg" />
+    <None Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\.signature.p7s" />
+    <None Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\System.Diagnostics.DiagnosticSource.4.5.0.nupkg" />
+    <None Include="packages\System.Interactive.Async.3.1.1\.signature.p7s" />
+    <None Include="packages\System.Interactive.Async.3.1.1\System.Interactive.Async.3.1.1.nupkg" />
+    <None Include="packages\System.Memory.4.5.1\.signature.p7s" />
+    <None Include="packages\System.Memory.4.5.1\lib\netcoreapp2.1\_._" />
+    <None Include="packages\System.Memory.4.5.1\ref\netcoreapp2.1\_._" />
+    <None Include="packages\System.Memory.4.5.1\System.Memory.4.5.1.nupkg" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\.signature.p7s" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\MonoAndroid10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\MonoTouch10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\netcoreapp2.0\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\xamarinios10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\xamarinmac20\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\xamarintvos10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\lib\xamarinwatchos10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\MonoAndroid10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\MonoTouch10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\netcoreapp2.0\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\xamarinios10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\xamarinmac20\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\xamarintvos10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\ref\xamarinwatchos10\_._" />
+    <None Include="packages\System.Numerics.Vectors.4.4.0\System.Numerics.Vectors.4.4.0.nupkg" />
+    <None Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\.signature.p7s" />
+    <None Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\System.Runtime.CompilerServices.Unsafe.4.5.1.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RecordLogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.xml" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.dll" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.xml" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.xml" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.Abstractions.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.xml" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.Analyzers.2.1.2\analyzers\dotnet\cs\Microsoft.EntityFrameworkCore.Analyzers.dll" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.Relational.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <Content Include="packages\Microsoft.EntityFrameworkCore.Relational.2.1.2\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.xml" />
+    <Content Include="packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <Content Include="packages\Microsoft.Extensions.Caching.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.xml" />
+    <Content Include="packages\Microsoft.Extensions.Caching.Memory.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <Content Include="packages\Microsoft.Extensions.Caching.Memory.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.xml" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.xml" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.Binder.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="packages\Microsoft.Extensions.Configuration.Binder.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.xml" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\net461\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\netcoreapp2.0\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="packages\Microsoft.Extensions.Logging.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.dll" />
+    <Content Include="packages\Microsoft.Extensions.Logging.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.xml" />
+    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="packages\Microsoft.Extensions.Logging.Abstractions.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="packages\Microsoft.Extensions.Options.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.dll" />
+    <Content Include="packages\Microsoft.Extensions.Options.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Options.xml" />
+    <Content Include="packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="packages\Microsoft.Extensions.Primitives.2.1.1\lib\netstandard2.0\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\net452\MySql.Data.xml" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\netstandard2.0\MySql.Data.dll" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\netstandard2.0\MySql.Data.xml" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\netstandard2.1\MySql.Data.dll" />
+    <Content Include="packages\MySql.Data.8.0.18\lib\netstandard2.1\MySql.Data.xml" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\net452\MySql.Data.EntityFrameworkCore.dll" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\net452\MySql.Data.EntityFrameworkCore.xml" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\net461\MySql.Data.EntityFrameworkCore.dll" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\net461\MySql.Data.EntityFrameworkCore.xml" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\netstandard2.0\MySql.Data.EntityFrameworkCore.dll" />
+    <Content Include="packages\MySql.Data.EntityFrameworkCore.8.0.18\lib\netstandard2.0\MySql.Data.EntityFrameworkCore.xml" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net35\Remotion.Linq.dll" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net35\Remotion.Linq.XML" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net40\Remotion.Linq.dll" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net40\Remotion.Linq.XML" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.XML" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\netstandard1.0\Remotion.Linq.dll" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\netstandard1.0\Remotion.Linq.xml" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\portable-net45+win+wpa81+wp80\Remotion.Linq.dll" />
+    <Content Include="packages\Remotion.Linq.2.2.0\lib\portable-net45+win+wpa81+wp80\Remotion.Linq.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\net35\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\net35\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\netstandard1.3\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\netstandard1.3\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\sl4\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\sl4\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\sl5\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\sl5\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\uap10\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\uap10\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\wp71\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\wp71\Renci.SshNet.xml" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\wp8\Renci.SshNet.dll" />
+    <Content Include="packages\SSH.NET.2016.1.0\lib\wp8\Renci.SshNet.xml" />
+    <Content Include="packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll" />
+    <Content Include="packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.xml" />
+    <Content Include="packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll" />
+    <Content Include="packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.xml" />
+    <Content Include="packages\System.Buffers.4.4.0\LICENSE.TXT" />
+    <Content Include="packages\System.Buffers.4.4.0\ref\netstandard1.1\System.Buffers.dll" />
+    <Content Include="packages\System.Buffers.4.4.0\ref\netstandard1.1\System.Buffers.xml" />
+    <Content Include="packages\System.Buffers.4.4.0\ref\netstandard2.0\System.Buffers.dll" />
+    <Content Include="packages\System.Buffers.4.4.0\ref\netstandard2.0\System.Buffers.xml" />
+    <Content Include="packages\System.Buffers.4.4.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Buffers.4.4.0\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Buffers.4.4.0\version.txt" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard1.0\System.Collections.Immutable.dll" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard1.0\System.Collections.Immutable.xml" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard1.3\System.Collections.Immutable.dll" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard1.3\System.Collections.Immutable.xml" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.dll" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\netstandard2.0\System.Collections.Immutable.xml" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.xml" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\LICENSE.TXT" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Collections.Immutable.1.5.0\version.txt" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\lib\netcore50\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\lib\netstandard1.4\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\lib\netstandard2.0\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\LICENSE.TXT" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\net461\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\net461\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\de\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\es\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\fr\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\it\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\ja\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\ko\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\ru\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\zh-hans\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netcore50\zh-hant\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\de\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\es\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\fr\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\it\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\ja\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\ko\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\ru\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\zh-hans\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.1\zh-hant\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\de\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\es\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\fr\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\it\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\ja\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\ko\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\ru\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\zh-hans\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.3\zh-hant\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\de\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\es\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\fr\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\it\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\ja\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\ko\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\ru\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\zh-hans\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard1.4\zh-hant\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard2.0\System.ComponentModel.Annotations.dll" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\ref\netstandard2.0\System.ComponentModel.Annotations.xml" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.ComponentModel.Annotations.4.5.0\version.txt" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net45\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net45\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\netstandard1.1\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\netstandard1.1\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\netstandard1.3\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\netstandard1.3\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\portable-net45+win8+wpa81\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\portable-net45+win8+wpa81\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\LICENSE.TXT" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Diagnostics.DiagnosticSource.4.5.0\version.txt" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net45\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net45\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.0\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.0\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.3\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.3\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Memory.4.5.1\lib\netstandard1.1\System.Memory.dll" />
+    <Content Include="packages\System.Memory.4.5.1\lib\netstandard1.1\System.Memory.xml" />
+    <Content Include="packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll" />
+    <Content Include="packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.xml" />
+    <Content Include="packages\System.Memory.4.5.1\LICENSE.TXT" />
+    <Content Include="packages\System.Memory.4.5.1\ref\netstandard1.1\System.Memory.dll" />
+    <Content Include="packages\System.Memory.4.5.1\ref\netstandard1.1\System.Memory.xml" />
+    <Content Include="packages\System.Memory.4.5.1\ref\netstandard2.0\System.Memory.dll" />
+    <Content Include="packages\System.Memory.4.5.1\ref\netstandard2.0\System.Memory.xml" />
+    <Content Include="packages\System.Memory.4.5.1\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Memory.4.5.1\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Memory.4.5.1\version.txt" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\netstandard1.0\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\netstandard1.0\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\netstandard2.0\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\netstandard2.0\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\LICENSE.TXT" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\net46\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\net46\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\netstandard1.0\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\netstandard1.0\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\netstandard2.0\System.Numerics.Vectors.dll" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\ref\netstandard2.0\System.Numerics.Vectors.xml" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Numerics.Vectors.4.4.0\version.txt" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netcoreapp2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netcoreapp2.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\LICENSE.TXT" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\ref\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\ref\netstandard1.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\ref\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\ref\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\THIRD-PARTY-NOTICES.TXT" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\useSharedDesignerContext.txt" />
+    <Content Include="packages\System.Runtime.CompilerServices.Unsafe.4.5.1\version.txt" />
+    <Content Include="PortData\investigationpatients.txt" />
+    <Content Include="PortData\patienttags.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)PortData\*"  "$(TargetDir)PortData" /i /s   /Y /Q /e</PostBuildEvent>
+  </PropertyGroup>
+</Project>
